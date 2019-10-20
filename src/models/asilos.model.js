@@ -24,7 +24,7 @@ module.exports = function(app) {
             quintaFeira: Boolean,
             sextaFeira: Boolean,
             sabado: Boolean,
-            doming: Boolean
+            domingo: Boolean
           }
         ],
         required: true
@@ -40,8 +40,8 @@ module.exports = function(app) {
   // This is necessary to avoid model compilation errors in watch mode
   // see https://github.com/Automattic/mongoose/issues/1251
   try {
-    return mongooseClient.model("asilos");
+    return mongooseClient.model('asilos');
   } catch (e) {
-    return mongooseClient.model("asilos", asilos);
+    return mongooseClient.model('asilos', asilos);
   }
 };
