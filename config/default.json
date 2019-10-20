@@ -1,0 +1,32 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "pessoa",
+    "service": "pessoas",
+    "secret": "cfRPFvrkR8wBFmz3qu0oSy23HYg=",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://asiloTCC.com.br",
+      "issuer": "asiloTCC",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "senha"
+    }
+  },
+  "mongodb": "mongodb+srv://dbhubelder:sitedosveio@cluster0-lsxio.mongodb.net/dbhubelder?retryWrites=true&w=majority"
+}
