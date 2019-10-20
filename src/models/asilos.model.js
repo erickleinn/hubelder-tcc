@@ -3,7 +3,7 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function(app) {
-  const mongooseClient = app.get('mongooseClient');
+  const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
   const asilos = new Schema(
     {
@@ -16,21 +16,19 @@ module.exports = function(app) {
       // foto: { type: String, required: true },
       aceitaDoacao: { type: Boolean, required: true },
       diasDisponiveis: {
-        type: [
-          {
-            segundaFeira: Boolean,
-            tercaFeira: Boolean,
-            quartaFeira: Boolean,
-            quintaFeira: Boolean,
-            sextaFeira: Boolean,
-            sabado: Boolean,
-            domingo: Boolean
-          }
-        ],
+        type: {
+          segundaFeira: Boolean,
+          tercaFeira: Boolean,
+          quartaFeira: Boolean,
+          quintaFeira: Boolean,
+          sextaFeira: Boolean,
+          sabado: Boolean,
+          domingo: Boolean
+        },
         required: true
       },
       pessoaResponsavel: { type: String, required: true },
-      itensAceitos: { type: [String], required: false}
+      itensAceitos: { type: [String], required: false }
     },
     {
       timestamps: true
@@ -40,8 +38,8 @@ module.exports = function(app) {
   // This is necessary to avoid model compilation errors in watch mode
   // see https://github.com/Automattic/mongoose/issues/1251
   try {
-    return mongooseClient.model('asilos');
+    return mongooseClient.model("asilos");
   } catch (e) {
-    return mongooseClient.model('asilos', asilos);
+    return mongooseClient.model("asilos", asilos);
   }
 };
